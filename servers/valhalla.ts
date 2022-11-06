@@ -1,11 +1,11 @@
 import { TexturesSchema } from "../schemas/textures.ts";
-import { fetchSkinTexture } from "../utils/skin.ts";
 import { template } from "../utils/template.ts";
+import { fetchProfileTexture } from "../utils/texture.ts";
 import { ServerHandler } from "./index.ts";
 
-const URL = template`http://skins.minelittlepony-mod.com/user/${"UUID"}`;
+const URL = template`http://skins.minelittlepony-mod.com/api/v1/user/${"UUID"}`;
 
-export const VALHALLA_SERVER: ServerHandler = async (uuid) => {
+export const VALHALLA_SERVER: ServerHandler = async (uuid, textureType) => {
   try {
     const r = await fetch(URL(uuid));
 
@@ -15,7 +15,7 @@ export const VALHALLA_SERVER: ServerHandler = async (uuid) => {
     const data = TexturesSchema.safeParse(json);
 
     if (data.success) {
-      return await fetchSkinTexture(data.data);
+      return await fetchProfileTexture(data.data, textureType);
     }
 
     return { error: data.error };

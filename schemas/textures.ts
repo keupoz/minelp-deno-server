@@ -6,16 +6,12 @@ export const TexturesSchema = z.object({
   timestamp: z.number(),
   profileId: z.string(),
   profileName: z.string(),
-  signatureRequired: z.optional(z.boolean()),
-  textures: z.object({
-    SKIN: z.optional(z.object({
+  signatureRequired: z.boolean().optional(),
+  textures: z.record(
+    z.string().transform((value) => value.toLowerCase()),
+    z.object({
       url: z.string(),
-      metadata: z.optional(z.object({
-        model: z.string(),
-      })),
-    })),
-    CAPE: z.optional(z.object({
-      url: z.string(),
-    })),
-  }),
+      metadata: z.record(z.string()).optional(),
+    }),
+  ),
 });

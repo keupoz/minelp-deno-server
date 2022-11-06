@@ -11,9 +11,9 @@ export const LEGACY_SERVER: ServerHandler = async (uuid) => {
       return null;
     }
 
-    const skin = await r.arrayBuffer();
+    const buffer = await r.arrayBuffer();
 
-    return { response: { skin, model: "unknown" } };
+    return { response: { buffer, model: "unknown" } };
   } catch (err) {
     return { error: err };
   }

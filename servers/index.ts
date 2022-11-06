@@ -1,6 +1,9 @@
-import { SkinResponse } from "../utils/skin.ts";
+import { TextureResponse } from "../utils/texture.ts";
 
-export type ServerHandler = (uuid: string) => Promise<SkinResponse>;
+export type ServerHandler = (
+  uuid: string,
+  textureType: string,
+) => Promise<TextureResponse>;
 
 const REGISTRY = new Map<string, ServerHandler>();
 
@@ -19,19 +22,21 @@ export function getServers(): IterableIterator<string> {
 export async function fetchSkin(
   server: string,
   uuid: string,
-): Promise<SkinResponse> {
+  textureType: string,
+): Promise<TextureResponse> {
   const serverHandler = REGISTRY.get(server);
 
   if (serverHandler === undefined) return null;
 
-  return await serverHandler(uuid);
+  return await serverHandler(uuid, textureType);
 }
 
 export async function fetchFirstSkin(
   uuid: string,
-): Promise<[string, SkinResponse]> {
+  textureType: string,
+): Promise<[string, TextureResponse]> {
   for (const [serverName, serverHandler] of REGISTRY) {
-    const response = await serverHandler(uuid);
+    const response = await serverHandler(uuid, textureType);
 
     if (response !== null) {
       return [serverName, response];
