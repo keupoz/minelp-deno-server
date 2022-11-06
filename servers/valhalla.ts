@@ -8,6 +8,9 @@ const URL = template`http://skins.minelittlepony-mod.com/user/${"UUID"}`;
 export const VALHALLA_SERVER: ServerHandler = async (uuid) => {
   try {
     const r = await fetch(URL(uuid));
+
+    if (!r.ok) return null;
+
     const json = await r.json();
     const data = TexturesSchema.safeParse(json);
 

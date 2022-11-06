@@ -1,4 +1,5 @@
 import { serve } from "sift";
+import { ZodError } from "zod";
 import {
   fetchFirstSkin,
   fetchSkin,
@@ -16,6 +17,7 @@ const MOJANG_ID =
   template`https://api.mojang.com/users/profiles/minecraft/${"NICKNAME"}`;
 
 const ERRORS = {
+  INTERNAL_ERROR: err("INTERNAL_ERROR"),
   UNKNOWN_SERVER: err("UNKNOWN_SERVER"),
   NO_SERVER: err("NO_SERVER"),
   NO_NICKNAME: err("NO_NICKNAME"),
@@ -45,6 +47,18 @@ serve({
     const uuidInfo = await getUUID(MOJANG_ID, nickname);
 
     if ("error" in uuidInfo) {
+      const { error } = uuidInfo;
+
+      if (error instanceof ZodError) {
+        console.error(error);
+
+        return errResponse(
+          500,
+          ERRORS.INTERNAL_ERROR,
+          `Failed to parse profile response`,
+        );
+      }
+
       return errResponse(
         404,
         ERRORS.NO_PROFILE,
@@ -54,11 +68,31 @@ serve({
 
     const skin = await fetchSkin(server, uuidInfo.response.id);
 
-    if (skin === null || "error" in skin) {
+    if (skin === null) {
       return errResponse(
         404,
         ERRORS.NO_SKIN,
         `No skin for nickname "${uuidInfo.response.name}"`,
+      );
+    }
+
+    if ("error" in skin) {
+      const { error } = skin;
+
+      console.error(error);
+
+      if (error instanceof ZodError) {
+        return errResponse(
+          500,
+          ERRORS.INTERNAL_ERROR,
+          `Failed to parse skin response`,
+        );
+      }
+
+      return errResponse(
+        500,
+        ERRORS.INTERNAL_ERROR,
+        `Unexpected error`,
       );
     }
 
