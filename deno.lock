@@ -1,0 +1,200 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@std/fmt@^1.0.8": "1.0.8",
+    "npm:@orpc/openapi@^1.11.2": "1.11.2",
+    "npm:@orpc/server@^1.11.2": "1.11.2",
+    "npm:@orpc/zod@^1.11.2": "1.11.2_@orpc+contract@1.11.2_@orpc+server@1.11.2_zod@4.1.12",
+    "npm:@standard-schema/spec@1": "1.0.0",
+    "npm:@standard-schema/utils@0.3": "0.3.0",
+    "npm:zod@^4.1.12": "4.1.12"
+  },
+  "jsr": {
+    "@std/fmt@1.0.8": {
+      "integrity": "71e1fc498787e4434d213647a6e43e794af4fd393ef8f52062246e06f7e372b7"
+    }
+  },
+  "npm": {
+    "@orpc/client@1.11.2": {
+      "integrity": "sha512-Fo9rLFAPaDZkq82MZDE3+cjSwGr2u0WBPGegNNVO//vTCbABIuaEdJWvi1dCx9Es+oGIH+MW16lP5pOMmaK20Q==",
+      "dependencies": [
+        "@orpc/shared",
+        "@orpc/standard-server",
+        "@orpc/standard-server-fetch",
+        "@orpc/standard-server-peer"
+      ]
+    },
+    "@orpc/contract@1.11.2": {
+      "integrity": "sha512-NYSpoZ6KiZ5eqsbTAoB64SGXGk6Mdpk22Ju5taOpiPDOk2oZya6wtPBPdSIQ5iV7/JfkstuRptjhnlEpoDsZWw==",
+      "dependencies": [
+        "@orpc/client",
+        "@orpc/shared",
+        "@standard-schema/spec",
+        "openapi-types"
+      ]
+    },
+    "@orpc/interop@1.11.2": {
+      "integrity": "sha512-I10qsBOHcHltEek4DTYN3w8hl6Us3+aH1q3Yj+dqPhtA1dQ/uTDxcT4+XPnzrv4a4CflE6yDxnAREIZIdVz0BQ=="
+    },
+    "@orpc/json-schema@1.11.2": {
+      "integrity": "sha512-eo7Uhc10r5ulNJ3Cj6MfZPTq7NIy7yf4nT9osNhzsQd+HYfSTp4Li4knYzVe8Zi8V7+ots+wFo+8rfWu5uLT5A==",
+      "dependencies": [
+        "@orpc/contract",
+        "@orpc/interop",
+        "@orpc/openapi",
+        "@orpc/server",
+        "@orpc/shared"
+      ]
+    },
+    "@orpc/openapi-client@1.11.2": {
+      "integrity": "sha512-8l+6o6EC5oGYfjzNQGJ9Irvn/Tz3vVM69qAW6x0FTzqf5G9mzDQ9Tr6NOSQifswGl7QZp7Bm6oKqTV51WyZFLg==",
+      "dependencies": [
+        "@orpc/client",
+        "@orpc/contract",
+        "@orpc/shared",
+        "@orpc/standard-server"
+      ]
+    },
+    "@orpc/openapi@1.11.2": {
+      "integrity": "sha512-Nge67zVi3GA5U/2UBc8XrkOaGdFOHAUzUWp9+NK1lMT1RfPyDfePzP1Id5KDif/uUIkX8AkP8puCATFbLV65Pw==",
+      "dependencies": [
+        "@orpc/client",
+        "@orpc/contract",
+        "@orpc/interop",
+        "@orpc/openapi-client",
+        "@orpc/server",
+        "@orpc/shared",
+        "@orpc/standard-server",
+        "rou3"
+      ]
+    },
+    "@orpc/server@1.11.2": {
+      "integrity": "sha512-3VG6K58AyxeLYLf78cCUzEoa1ntUFpNN++2E8JsYRSgCWRFg8S7pRhXyC4E+6dnzx44SZv42V8hiLR1v3OmXhg==",
+      "dependencies": [
+        "@orpc/client",
+        "@orpc/contract",
+        "@orpc/interop",
+        "@orpc/shared",
+        "@orpc/standard-server",
+        "@orpc/standard-server-aws-lambda",
+        "@orpc/standard-server-fastify",
+        "@orpc/standard-server-fetch",
+        "@orpc/standard-server-node",
+        "@orpc/standard-server-peer",
+        "cookie"
+      ]
+    },
+    "@orpc/shared@1.11.2": {
+      "integrity": "sha512-XOz4cHtxNKsMnVz7THzmwOwXYsaE55Vd4BLc2Y898ZqiWhwzj3bwLtZen9X0FdquytDBz7CBWKqgU2vmOITxew==",
+      "dependencies": [
+        "radash",
+        "type-fest"
+      ]
+    },
+    "@orpc/standard-server-aws-lambda@1.11.2": {
+      "integrity": "sha512-6BnsGRPRwlLLRm7vigddr/VW19+pQw1iAZ9nCF6WHp2kUwKbdcF9O1ksxvvJhAW2pncyPBPjEpli8MZ1hG3oyA==",
+      "dependencies": [
+        "@orpc/shared",
+        "@orpc/standard-server",
+        "@orpc/standard-server-fetch",
+        "@orpc/standard-server-node"
+      ]
+    },
+    "@orpc/standard-server-fastify@1.11.2": {
+      "integrity": "sha512-zxCcbQAhNCUKQuYB1LOchiHkbl0i3h19wbiY6KjAvu6cdZ74/8DJ6ARrkjCCHe/uHR5NW6u32CulO2/ohNXKVg==",
+      "dependencies": [
+        "@orpc/shared",
+        "@orpc/standard-server",
+        "@orpc/standard-server-node"
+      ]
+    },
+    "@orpc/standard-server-fetch@1.11.2": {
+      "integrity": "sha512-FhA9oLEejd7ebqN5vxx2l3L8g5djhgVodGykwHiDSQJo0erXIZ0n5S+YpvW6fFiRe+3k8h+U6K2ERaAL5wZXxw==",
+      "dependencies": [
+        "@orpc/shared",
+        "@orpc/standard-server"
+      ]
+    },
+    "@orpc/standard-server-node@1.11.2": {
+      "integrity": "sha512-Zae1WwhWfTS+1bfGx6IqHem2uuDsUMntpp+ymh+U9AlOzzCLdFtfYwScPNsuZhhuyGU9rBJpRjh1YCgeBZSanw==",
+      "dependencies": [
+        "@orpc/shared",
+        "@orpc/standard-server",
+        "@orpc/standard-server-fetch"
+      ]
+    },
+    "@orpc/standard-server-peer@1.11.2": {
+      "integrity": "sha512-TAnhNiaNN5e6UHxdT5D1ZY8fseKDXnr3UmZidX2CghJj967f9+SLl1FFtuzJ7SO06uGBdARyV6azIoKlFpt+gA==",
+      "dependencies": [
+        "@orpc/shared",
+        "@orpc/standard-server"
+      ]
+    },
+    "@orpc/standard-server@1.11.2": {
+      "integrity": "sha512-AXMNHXDgUCCfO4DCFGteCmWSrnG6FbydVBEMA0/HacGwi5oxDa3psHwEl/Zp7vRgTtHBiZsxaCfWQEjM+8e+2A==",
+      "dependencies": [
+        "@orpc/shared"
+      ]
+    },
+    "@orpc/zod@1.11.2_@orpc+contract@1.11.2_@orpc+server@1.11.2_zod@4.1.12": {
+      "integrity": "sha512-+wMS4a6onDmoW+Koo4nuUaJcE8Ll1MiuAiL2LbNnHvwpAJf/P3+nEEVQzumoOOUZrV1lvlO3+gGuz9Hgwn60DQ==",
+      "dependencies": [
+        "@orpc/contract",
+        "@orpc/json-schema",
+        "@orpc/openapi",
+        "@orpc/server",
+        "@orpc/shared",
+        "escape-string-regexp",
+        "wildcard-match",
+        "zod"
+      ]
+    },
+    "@standard-schema/spec@1.0.0": {
+      "integrity": "sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA=="
+    },
+    "@standard-schema/utils@0.3.0": {
+      "integrity": "sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g=="
+    },
+    "cookie@1.0.2": {
+      "integrity": "sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA=="
+    },
+    "escape-string-regexp@5.0.0": {
+      "integrity": "sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw=="
+    },
+    "openapi-types@12.1.3": {
+      "integrity": "sha512-N4YtSYJqghVu4iek2ZUvcN/0aqH1kRDuNqzcycDxhOUpg7GdvLa2F3DgS6yBNhInhv2r/6I0Flkn7CqL8+nIcw=="
+    },
+    "radash@12.1.1": {
+      "integrity": "sha512-h36JMxKRqrAxVD8201FrCpyeNuUY9Y5zZwujr20fFO77tpUtGa6EZzfKw/3WaiBX95fq7+MpsuMLNdSnORAwSA=="
+    },
+    "rou3@0.7.10": {
+      "integrity": "sha512-aoFj6f7MJZ5muJ+Of79nrhs9N3oLGqi2VEMe94Zbkjb6Wupha46EuoYgpWSOZlXww3bbd8ojgXTAA2mzimX5Ww=="
+    },
+    "tagged-tag@1.0.0": {
+      "integrity": "sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng=="
+    },
+    "type-fest@5.2.0": {
+      "integrity": "sha512-xxCJm+Bckc6kQBknN7i9fnP/xobQRsRQxR01CztFkp/h++yfVxUUcmMgfR2HttJx/dpWjS9ubVuyspJv24Q9DA==",
+      "dependencies": [
+        "tagged-tag"
+      ]
+    },
+    "wildcard-match@5.1.4": {
+      "integrity": "sha512-wldeCaczs8XXq7hj+5d/F38JE2r7EXgb6WQDM84RVwxy81T/sxB5e9+uZLK9Q9oNz1mlvjut+QtvgaOQFPVq/g=="
+    },
+    "zod@4.1.12": {
+      "integrity": "sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/fmt@^1.0.8",
+      "npm:@orpc/openapi@^1.11.2",
+      "npm:@orpc/server@^1.11.2",
+      "npm:@orpc/zod@^1.11.2",
+      "npm:@standard-schema/spec@1",
+      "npm:@standard-schema/utils@0.3",
+      "npm:zod@^4.1.12"
+    ]
+  }
+}

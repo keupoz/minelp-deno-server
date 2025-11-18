@@ -1,3 +1,17 @@
 {
-  "importMap": "importMap.json"
+  "imports": {
+    "@orpc/openapi": "npm:@orpc/openapi@^1.11.2",
+    "@orpc/server": "npm:@orpc/server@^1.11.2",
+    "@orpc/zod": "npm:@orpc/zod@^1.11.2",
+    "@standard-schema/spec": "npm:@standard-schema/spec@^1.0.0",
+    "@standard-schema/utils": "npm:@standard-schema/utils@^0.3.0",
+    "@std/fmt": "jsr:@std/fmt@^1.0.8",
+    "zod": "npm:zod@^4.1.12"
+  },
+  "fmt": {
+    "lineWidth": 120
+  },
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true
+  }
 }
