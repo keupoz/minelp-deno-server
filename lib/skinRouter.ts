@@ -42,13 +42,6 @@ interface DetailedOutput<T> {
   body?: T;
 }
 
-function xHeaders<THeaders extends Record<string, string | string[]>>(headers: THeaders): THeaders {
-  return {
-    "Access-Control-Expose-Headers": Object.keys(headers),
-    ...headers,
-  };
-}
-
 async function handleExact(server: string, nickname: string, textureType: string, signal?: AbortSignal) {
   const fetchTexture = SERVERS[server];
 
@@ -58,10 +51,10 @@ async function handleExact(server: string, nickname: string, textureType: string
   const textureData = await fetchTexture(uuidObject.id, textureType, signal);
 
   return {
-    headers: xHeaders({
+    headers: {
       "X-Nickname": uuidObject.name,
       "X-Model": textureData.model ?? "default",
-    }),
+    },
     body: new File([textureData.value], `${uuidObject.name}.png`, {
       type: "image/png",
     }),
@@ -87,11 +80,11 @@ async function handleAny(nickname: string, textureType: string, signal?: AbortSi
   const [serverName, textureData] = result;
 
   return {
-    headers: xHeaders({
+    headers: {
       "X-Server": serverName,
       "X-Nickname": uuidObject.name,
       "X-Model": textureData.model ?? "default",
-    }),
+    },
     body: new File([textureData.value], `${uuidObject.name}.png`, {
       type: "image/png",
     }),

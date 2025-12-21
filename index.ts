@@ -9,7 +9,7 @@ import { skinRouter } from "./lib/skinRouter.ts";
 
 const handler = new OpenAPIHandler(skinRouter, {
   plugins: [
-    new CORSPlugin(),
+    new CORSPlugin({ exposeHeaders: ["X-Server", "X-Nickname", "X-Model"] }),
     new OpenAPIReferencePlugin({
       docsProvider: "swagger",
       schemaConverters: [new ZodToJsonSchemaConverter()],
